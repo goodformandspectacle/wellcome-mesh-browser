@@ -4,6 +4,7 @@ class TreeController < ApplicationController
     @subjects = Subject.select(:label, :all_labels, :tree_number)
     .from("(select label, all_labels, unnest(tree_numbers) as tree_number from subjects) as subjects")
     .where("tree_number LIKE '___'")
+    .order(:tree_number)
     .limit(500)
   end
 
@@ -38,6 +39,7 @@ class TreeController < ApplicationController
     @child_subjects = Subject.select(:label, :tree_number, :all_labels)
     .from("(select label, all_labels, unnest(tree_numbers) as tree_number from subjects) as subjects")
     .where("tree_number LIKE '#{@subject.tree_number}.___'")
+    .order(:tree_number)
     .limit(500)
 
     @records = @subject.records.select(:identifier, :title).limit(50)
