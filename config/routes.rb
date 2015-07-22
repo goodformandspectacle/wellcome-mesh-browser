@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   resources :tree, only: [:index, :show], constraints: {id: /[^\.]+/}
 
+  root 'home#show'
+
 end
