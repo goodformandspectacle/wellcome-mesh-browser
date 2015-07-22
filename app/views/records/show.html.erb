@@ -1,0 +1,10 @@
+<h1><%= @record.title %></h1>
+
+
+<h2>MESH subjects</h2>
+
+<ul>
+  <% @record.mesh_subjects.each do |subject| %>
+    <li><%= link_to subject.label, "/tree/#{subject.tree_numbers.first.gsub('.', '/')}" %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,11 @@
+<ol>
+  <% subjects.each do |subject| %>
+    <li>
+      <%= link_to subject.label, "/tree/#{subject.tree_number.gsub('.', '/')}" %>
+
+    <% if subject.all_labels.length > 1 %>
+      <span class="aka">(<abbr title="also known as">AKA</abbr> <%= (subject.all_labels - [subject.label]).collect {|s| content_tag('b', s)}.join(', ').html_safe %>)</span>
+    <% end %>
+    </li>
+  <% end %>
+</ol>
