@@ -1,0 +1,16 @@
+<% if records.length > 0 %>
+
+  <% if records.length == 50 %>
+   <h2>50+ Wellcome Library records</h2>
+  <% else %>
+    <h2><%= pluralize(@records.length, 'Wellcome Library record') %></h2>
+  <% end %>
+
+  <ul>
+    <% records.each do |record| %>
+      <li><%= link_to record.title, record %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There’s nothing in the Wellcome Library collection about this (yet).</p>
+<% end %>

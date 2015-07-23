@@ -1,0 +1,6 @@
+<% if related_subjects.length > 0 %>
+  <p>Related:
+    <%= related_subjects.collect do |subject| %>
+      <% link_to(subject.label, subject_path(subject.identifier)) %>
+    <% end.join(', ').html_safe %>
+<% end %>

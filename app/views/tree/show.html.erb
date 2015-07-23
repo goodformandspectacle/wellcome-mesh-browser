@@ -4,11 +4,15 @@
 
   <%= @parent_subjects.collect {|s| link_to(s.label, "/tree/#{s.tree_number.gsub('.', '/')}") + ' /' }.join(' ').html_safe %>
   <h1><%= @subject.label %></h1>
+  <span class="identifier">(<%= link_to @subject.identifier, subject_path(@subject.identifier) %>)</span>
 </div>
 
 <% if @subject.all_labels.length > 1 %>
   <p>Also known as: <%= (@subject.all_labels - [@subject.label]).collect {|s| content_tag('b', s)}.join(', ').html_safe %>.</p>
 <% end %>
+
+<%= render 'shared/related_subjects', related_subjects: @subject.related_subjects %>
+
 
 <p class="description">
   <%= @subject.description %>
@@ -19,19 +23,4 @@
   <%= render 'tree', subjects: @child_subjects %>
 <% end %>
 
-<% if @records.length > 0 %>
-
-  <% if @records.length == 50 %>
-   <h2>50+ Wellcome Library records</h2>
-  <% else %>
-    <h2><%= pluralize(@records.length, 'Wellcome Library record') %></h2>
-  <% end %>
-
-  <ul>
-    <% @records.each do |record| %>
-      <li><%= link_to record.title, record %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>There’s nothing in the Wellcome Library collectiona about this (yet).</p>
-<% end %>
+<%= render 'shared/records', records: @records %>
