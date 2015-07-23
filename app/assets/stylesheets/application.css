@@ -18,7 +18,7 @@ body {
   font-family: Garamond, Georgia, serif;
 }
 
-main {
+main, footer {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
@@ -56,4 +56,9 @@ main {
 .identifier a {
   margin: 0 3px;
   vertical-align: inherit;
+}
+
+footer {
+  font-size: 0.8em;
+  color: grey;
 }
