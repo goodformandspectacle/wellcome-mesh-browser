@@ -18,6 +18,13 @@ body {
   font-family: Garamond, Georgia, serif;
 }
 
+main {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+
  .breadcrumb {
   font-size: 2em;
  }
