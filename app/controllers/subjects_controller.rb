@@ -24,7 +24,7 @@ class SubjectsController < ApplicationController
 
     end
 
-    @records = @subject.records.select(:identifier, :title).limit(50)
+    @records = @subject.records.select(:identifier, :title).limit(10)
 
   end
 

@@ -42,7 +42,7 @@ class TreeController < ApplicationController
     .order(:tree_number)
     .limit(500)
 
-    @records = @subject.records.select(:identifier, :title).limit(50)
+    @records = @subject.records.select(:identifier, :title).limit(10)
 
   end
 
